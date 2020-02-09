@@ -1,0 +1,47 @@
+<!-- Hero Section -->
+<div class="hero-container">
+  <h1 class="title">UI Design Principle Demonstrations</h1>
+  <span class="desc">A demonstration based on Joe Natoli's DESIGN RULES: Principles + Practices</span>
+  <button class="action-btn">learn more</button>
+</div>
+<!-- Proximity Section -->
+<section class="rule" [ngClass]="{ 'proximity-fix': prettyProximity }">
+  <div class="rule-header">
+    <h2 class="rule-title">Proximity</h2>
+    <span class="desc">Balance of negative elements create order and rhythm creates harmony.</span>
+  </div>
+  <div class="toggle-row">
+    <button (click)="setProximity(true)" class="toggle --apply" type="button" aria-label="apply">apply</button>
+    <button (click)="setProximity(false)" class="toggle --revert" type="button" aria-label="revert">revert</button>
+  </div>
+  <div class="rule-body">
+    <!-- Category section -->
+    <div class="category-wrapper">
+      <span class="category-title">category</span>
+      <div class="cat-inner-wrapper">
+        <div class="category" *ngFor="let cat of categoryList">
+          <img [src]="cat.img" alt="category image" class="cat-icon">
+          <span class="cat-name">{{ cat.name }}</span>
+        </div>
+      </div>
+    </div><!-- End of category section -->
+    <!-- Product section -->
+    <div class="product-wrapper">
+      <span class="product-title">products</span>
+      <div class="product-inner-wrapper">
+        <div class="product" *ngFor="let product of productList">
+          <img [src]="product.img" alt="product image" class="product-img">
+          <div class="header">
+            <span class="name">{{ product.name }}</span>
+            <span class="price">{{ product.price }}</span>
+          </div>
+          <p class="desc">{{ product.desc }}</p>
+        </div>
+      </div>
+    </div><!-- End of product section -->
+  </div>
+  <div class="footer">
+    <span class="tip-title">tips</span>
+    <span class="tip">Proper proximity can help users group related contents together and understand the contents faster.</span>
+  </div>
+</section><!-- End of proximity section -->
