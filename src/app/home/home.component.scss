@@ -38,14 +38,14 @@ $proximityTransition: all ease-in-out .45s;
     font-size: 1.6rem;
   }
   .action-btn {
+    text-decoration: none;
     background: $highlightColor;
     border: none;
     color: $mainColor;
     text-transform: uppercase;
-    padding: 9px 30px;
+    padding: 9px 20px;
     font-weight: bold;
-    font-size: 1.5rem;
-    line-height: 1.5rem;
+    font-size: 1.6rem;
     grid-area: 4 / 2 / 5 / 3;
     height: 50%;
     width: 60%;
@@ -370,8 +370,8 @@ $widthTransition: all ease-in-out .65s;
     }
     .action-btn {
       width: 80%;
-      font-size: 1.3rem;
-      line-height: 1.3rem;
+      font-size: 1.5rem;
+      line-height: 2.5rem;
       min-width: unset;
     }
   }
@@ -409,8 +409,10 @@ $widthTransition: all ease-in-out .65s;
     .action-btn {
       width: 100%;
       font-size: 1.2rem;
-      line-height: 1.2rem;
+      line-height: 2.2rem;
       min-width: unset;
+      min-height: unset;
+      padding: 9px 15px;
     }
   }
   /*** Common rule styling ***/
@@ -460,10 +462,11 @@ $widthTransition: all ease-in-out .65s;
     }
     .action-btn {
       width: 90%;
-      padding: 8px 10px;
       font-size: 1.2rem;
-      line-height: 1.2rem;
+      line-height: 1.5rem;
       min-width: unset;
+      min-height: unset;
+      padding: 8px 10px;
     }
   }
   /*** Common rule styling ***/
@@ -549,10 +552,11 @@ $widthTransition: all ease-in-out .65s;
       grid-area: 4/2/6/3;
       margin: auto;
       width: 100%;
-      padding: 8px 10px;
+      padding: 3px 10px;
       font-size: 1.2rem;
-      line-height: 1.2rem;
+      line-height: 2.2rem;
       min-width: unset;
+      min-height: unset;
     }
   }
   /*** Common rule styling ***/
@@ -684,6 +688,7 @@ $widthTransition: all ease-in-out .65s;
       min-width: unset;
       width: 80%;
       font-size: 3rem;
+      line-height: 6rem;
     }
   }
   /*** Common rule styling ***/
@@ -707,7 +712,8 @@ $widthTransition: all ease-in-out .65s;
     .action-btn {
       min-width: unset;
       width: 80%;
-      font-size: 2rem;
+      font-size: 2.4rem;
+      line-height: 5rem;
     }
   }
   /*** Common rule styling ***/
@@ -739,6 +745,8 @@ $widthTransition: all ease-in-out .65s;
     .action-btn {
       min-width: unset;
       width: 80%;
+      line-height: 3.5rem;
+      font-size: 2rem;
     }
   }
   /*** Common rule styling ***/
@@ -901,6 +909,8 @@ $widthTransition: all ease-in-out .65s;
       min-width: unset;
       font-size: 1.3rem;
       line-height: 1.3rem;
+      box-sizing: border-box;
+      padding: 10px 20px;
     }
   }
   /*** Common rule styling ***/
