@@ -4,44 +4,126 @@
   <span class="desc">A demonstration based on Joe Natoli's DESIGN RULES: Principles + Practices</span>
   <button class="action-btn">learn more</button>
 </div>
-<!-- Proximity Section -->
-<section class="rule" [ngClass]="{ 'proximity-fix': prettyProximity }">
-  <div class="rule-header">
-    <h2 class="rule-title">Proximity</h2>
-    <span class="desc">Balance of negative elements create order and rhythm creates harmony.</span>
-  </div>
-  <div class="toggle-row">
-    <button (click)="setProximity(true)" class="toggle --apply" type="button" aria-label="apply">apply</button>
-    <button (click)="setProximity(false)" class="toggle --revert" type="button" aria-label="revert">revert</button>
-  </div>
-  <div class="rule-body">
-    <!-- Category section -->
-    <div class="category-wrapper">
-      <span class="category-title">category</span>
-      <div class="cat-inner-wrapper">
-        <div class="category" *ngFor="let cat of categoryList">
-          <img [src]="cat.img" alt="category image" class="cat-icon">
-          <span class="cat-name">{{ cat.name }}</span>
-        </div>
-      </div>
-    </div><!-- End of category section -->
-    <!-- Product section -->
-    <div class="product-wrapper">
-      <span class="product-title">products</span>
-      <div class="product-inner-wrapper">
-        <div class="product" *ngFor="let product of productList">
-          <img [src]="product.img" alt="product image" class="product-img">
-          <div class="header">
-            <span class="name">{{ product.name }}</span>
-            <span class="price">{{ product.price }}</span>
+<div class="demo">
+  <!-- Proximity Section -->
+  <section class="rule --proximity" [ngClass]="{ 'proximity-fix': prettyProximity }">
+    <div class="rule-container">
+      <!-- Rule header -->
+      <div class="rule-header">
+        <h2 class="rule-title">Proximity</h2>
+        <span class="desc">Balance of negative elements create order and rhythm creates harmony.</span>
+      </div><!-- End of rule header -->
+      <!-- Toggle row -->
+      <div class="toggle-row">
+        <button (click)="applyFix('proximity', true)" class="toggle --apply" type="button" aria-label="apply">apply</button>
+        <button (click)="applyFix('proximity', false)" class="toggle --revert" type="button" aria-label="revert">revert</button>
+      </div><!-- End of toggle row -->
+      <!-- Rule Body -->
+      <div class="rule-body">
+        <!-- Category section -->
+        <div class="category-wrapper">
+          <span class="category-title">category</span>
+          <div class="cat-inner-wrapper">
+            <div class="category" *ngFor="let cat of categoryList">
+              <img [src]="cat.img" alt="category image" class="cat-icon">
+              <span class="cat-name">{{ cat.name }}</span>
+            </div>
           </div>
-          <p class="desc">{{ product.desc }}</p>
+        </div><!-- End of category section -->
+        <!-- Product section -->
+        <div class="product-wrapper">
+          <span class="product-title">products</span>
+          <div class="product-inner-wrapper">
+            <div class="product" *ngFor="let product of productList">
+              <img [src]="product.img" alt="product image" class="product-img">
+              <div class="header">
+                <span class="name">{{ product.name }}</span>
+                <span class="price">{{ product.price }}</span>
+              </div>
+              <p class="desc">{{ product.desc }}</p>
+            </div>
+          </div>
+        </div><!-- End of product section -->
+      </div><!-- End of rule body -->
+      <!-- Footer -->
+      <div class="footer">
+        <span class="tip-title">tips</span>
+        <span class="tip">Proper proximity can help users group related contents together and understand the contents faster.</span>
+      </div><!-- End of footer -->
+    </div>
+  </section><!-- End of proximity section -->
+  <!-- Visual Hierarchy and Anamaly Section -->
+  <section class="rule --visual" [ngClass]="{ 'visual-fix': prettyVisual }">
+    <div class="rule-container">
+      <!-- Rule Header -->
+      <div class="rule-header">
+        <h2 class="rule-title">Visual Hierarchy and Anamaly</h2>
+        <span class="desc">Visual hierarchy help users find focal point and let them see the importance of the elements.</span>
+        <span class="desc">Anomaly can help call to action controls stand out from the rest of the contents.</span>
+      </div><!-- End of rule header -->
+      <!-- Toggle row -->
+      <div class="toggle-row">
+        <button (click)="applyFix('visual', true)" class="toggle --apply" type="button" aria-label="apply">apply</button>
+        <button (click)="applyFix('visual', false)" class="toggle --revert" type="button" aria-label="revert">revert</button>
+      </div><!-- End of toggle row -->
+      <!-- Rule Body -->
+      <div class="rule-body">
+        <div class="inner-rule-body">
+          <span class="form-title">Simple Sign Up Form</span>
+          <div class="ctrl-row">
+            <label for="username" class="title">Username</label>
+            <input id="username" class="ctrl" type="text">
+          </div>
+          <div class="ctrl-row">
+            <label for="password" class="title">Password</label>
+            <input id="password" type="password" class="ctrl">
+          </div>
+          <button type="button" class="form-submit" aria-label="Sign Up">Sign up</button>
         </div>
-      </div>
-    </div><!-- End of product section -->
-  </div>
-  <div class="footer">
-    <span class="tip-title">tips</span>
-    <span class="tip">Proper proximity can help users group related contents together and understand the contents faster.</span>
-  </div>
-</section><!-- End of proximity section -->
+      </div><!-- End of rule body -->
+      <!-- Footer -->
+      <div class="footer">
+        <span class="tip-title">tips</span>
+        <span class="tip">Align the sign up button on the left instead of on the right would follow the direction follow in previous two controls (left to right) and thus create harmony.</span>
+      </div><!-- End of footer -->
+    </div>
+  </section><!-- End of visual hierarchy and anamaly section -->
+  <!-- Line width section -->
+  <section class="rule --width" [ngClass]="{ 'width-fix': prettyWidth }">
+    <div class="rule-container">
+      <!-- Rule Header -->
+      <div class="rule-header">
+        <h2 class="rule-title">Line width and spacing</h2>
+        <span class="desc">Spaces between text are important too as they can give the audiences some room to rest while reading your article. Also the starting point of each line should be consistent.</span>
+      </div><!-- End of rule header -->
+      <!-- Toggle row -->
+      <div class="toggle-row">
+        <button (click)="applyFix('width', true)" class="toggle --apply" type="button" aria-label="apply">apply</button>
+        <button (click)="applyFix('width', false)" class="toggle --revert" type="button" aria-label="revert">revert</button>
+      </div><!-- End of toggle row -->
+      <!-- Rule body -->
+      <div class="rule-body">
+        <div class="inner-rule-body">
+          <p class="text">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </p>
+          <p class="text">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </p>
+          <p class="text">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </p>
+        </div>
+      </div><!-- End of rule body -->
+      <!-- Footer -->
+      <div class="footer">
+        <span class="tip-title">tips</span>
+        <span class="tip">Typical line width for Desktop should be around 60 characters and 30~40 characters for mobile devices.</span>
+      </div><!-- End of footer -->
+    </div>
+  </section><!-- End of line width section -->
+</div>
+<section class="credit">
+  <span>For more rules and explanation please refer to <b>Joe Natoli's </b>
+  <a target="_blank" href="https://www.udemy.com/course/design-rules/" class="link">DESIGN RULES: Principles + Practices for Great UI Design</a></span>
+</section>

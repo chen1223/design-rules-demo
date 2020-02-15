@@ -1,19 +1,24 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:500&display=swap');
 $mainColor: #5EB8B8;
 $mainColorDark: #7EC5C5;
 $mainColorLight: #8EDEDE;
 $highlightColor: #FBEF89;
+$subTextColor: #6D6B6B;
+$descColor: #333333eb;
 
 $btnSub: #9CAEAE;
-
 * {
   font-family: 'Poppins', sans-serif;
 }
+button {
+  outline: none;
+}
+$proximityTransition: all ease-in-out .45s;
 /*** Hero Section ***/
 .hero-container {
   background: $mainColor;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   text-align: center;
   display: grid;
   grid-template-columns: 1.5fr 1fr 1.5fr;
@@ -40,9 +45,12 @@ $btnSub: #9CAEAE;
     padding: 9px 30px;
     font-weight: bold;
     font-size: 1.5rem;
+    line-height: 1.5rem;
     grid-area: 4 / 2 / 5 / 3;
     height: 50%;
     width: 60%;
+    min-width: 220px;
+    min-height: 40px;
     margin-bottom: auto;
     margin-right: auto;
     margin-left: auto;
@@ -50,17 +58,25 @@ $btnSub: #9CAEAE;
 }
 /*** Rule Section common styling ***/
 .rule {
-  width: 60%;
-  margin: auto;
-  padding: 4rem 0;
-  color: #333;
+  color: $descColor;
+  .rule-container {
+    width: 60%;
+    margin: auto;
+    padding: 4rem 0;
+  }
+  .rule-header {
+    .desc {
+      width: 65%;
+    }
+  }
   .rule-title {
     font-weight: bold;
     margin: 0;
+    margin-bottom: 15px;
+    color: $mainColor;
   }
   .desc {
     display: block;
-    margin-top: 10px;
     font-size: 1rem;
   }
   .toggle-row {
@@ -85,35 +101,64 @@ $btnSub: #9CAEAE;
     }
   }
   .footer {
+    width: 65%;
     margin-top: 3rem;
     opacity: 0;
     visibility: hidden;
-    transition: all ease-in-out 1s;
   }
 }
 .tip-title {
   text-transform: capitalize;
   display: block;
-  color: #413F3F;
+  color: $mainColor;
 }
 .tip {
   display: block;
+  color: $mainColor;
+  width: 85%;
+}
+/** Different styling for even rules **/
+.rule:nth-child(even) {
+  background: $mainColorDark;
+  color: white;
+  .rule-title {
+    color: white;
+  }
+  .toggle-row {
+    .toggle {
+      &.--apply {
+        background: $highlightColor;
+        color: $mainColor;
+      }
+    }
+  }
+  .desc,
+  .tip-title,
+  .tip {
+    color: #ffffffdb;
+  }
 }
 /*** Proximity Section ***/
+.--proximity {
+  .footer {
+    transition: $proximityTransition;
+  }
+}
 .category-title,
 .product-title {
+  color: $subTextColor;
   font-weight: 600;
   margin-bottom: 40px;
   display: block;
   text-transform: capitalize;
-  transition: all ease-in-out 1s;
+  transition: $proximityTransition;
 }
 .cat-inner-wrapper {
   display: flex;
   .category {
     width: 80px;
     margin-right: 80px;
-    transition: all ease-in-out 1s;
+    transition: $proximityTransition;
     .cat-icon {
       width: 100%;
       max-width: 100%;
@@ -122,7 +167,8 @@ $btnSub: #9CAEAE;
       display: block;
       margin-top: 20px;
       text-align: center;
-      transition: all ease-in-out 1s;
+      color: $subTextColor;
+      transition: $proximityTransition;
     }
   }
 }
@@ -139,7 +185,8 @@ $btnSub: #9CAEAE;
       max-width: 100%;
     }
     .name, .price, .desc {
-      transition: all ease-in-out 1s;
+      transition: $proximityTransition;
+      color: $subTextColor;
     }
     .name, .price {
       display: block;
@@ -192,5 +239,776 @@ $btnSub: #9CAEAE;
       margin-top: 10px;
       padding: 0 5px;
     }
+  }
+}
+/*** Visual section ***/
+$visualTransition: all ease-in-out .65s;
+.--visual {
+  .rule-body {
+    width: 60%;
+    margin: 2rem auto;
+    color: #333;
+    padding: 2rem;
+    transition: $visualTransition;
+    .inner-rule-body {
+      width: 80%;
+      margin: auto;
+      transition: $visualTransition;
+    }
+    .form-title {
+      text-align: center;
+      display: block;
+      transition: $visualTransition;
+      color: #333;
+    }
+    .ctrl-row {
+      width: 100%;
+      margin: 20px 0;
+    }
+    .ctrl {
+      width: 100%;
+      padding: 6px 10px;
+      box-sizing: border-box;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+    }
+    .ctrl-row .title {
+      display: block;
+      color: #333;
+      transition: $visualTransition;
+    }
+    .form-submit {
+      transition: $visualTransition;
+      width: 100%;
+      background: #484D4D;
+      cursor: pointer;
+      padding: 6px 10px;
+      font-size: 1rem;
+      margin: 20px 0;
+    }
+  }
+  .footer {
+    transition: $visualTransition;
+  }
+}
+/** Pretty Visual Styling **/
+.--visual.visual-fix {
+  .rule-body {
+    background: $mainColorLight;
+    .form-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #ffffffe0;
+    }
+    .ctrl-row .title {
+      color: #efefef;
+    }
+    .form-submit {
+      width: 40%;
+      font-size: 1.2rem;
+      font-weight: bold;
+      background: $highlightColor;
+      color: $mainColor;
+      text-transform: capitalize;
+    }
+  }
+  .footer {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+/*** Line and width section ***/
+$widthTransition: all ease-in-out .65s;
+.rule.--width {
+  .inner-rule-body {
+    margin: 2rem 0;
+  }
+  .text {
+    margin: 0;
+    width: 100%;
+    transition: $widthTransition;
+    text-align: center;
+    color: $subTextColor;
+  }
+  .footer {
+    transition: $widthTransition;
+  }
+}
+/** Pretty line and width styling **/
+.--width.width-fix {
+  .text {
+    width: 60%;
+    margin: 1.5rem auto;
+    text-align: left;
+  }
+  .footer {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+/*** Credit Section ***/
+.credit {
+  text-align: center;
+  font-size: .85rem;
+  color: #505050;
+  margin: 1rem 0;
+}
+
+/*--------- Landscape Devices ---------*/
+/***** LG Devices *****/
+@media (min-width: 1200px) and (orientation: landscape){
+}
+/***** MD Devices*****/
+@media (min-width: 993px) and (max-width: 1199px) and (orientation: landscape){
+  /*** Hero Section ***/
+  .hero-container {
+    .title {
+      font-size: 3rem;
+    }
+    .desc {
+      font-size: 1.2rem;
+    }
+    .action-btn {
+      width: 80%;
+      font-size: 1.3rem;
+      line-height: 1.3rem;
+      min-width: unset;
+    }
+  }
+  /*** Common rule styling ***/
+  .rule {
+    .rule-container {
+      width: 80%;
+    }
+    .rule-header {
+      .desc {
+        width: 70%;
+      }
+    }
+    .footer {
+      width: 80%;
+    }
+  }
+  /*** Proximity Section ***/
+  .product-inner-wrapper {
+    .product {
+      width: calc(33% - 20px);
+    }
+  }
+}
+/***** SM Devices *****/
+@media (min-width: 768px) and (max-width: 992px) and (orientation: landscape){
+  /*** Hero Section ***/
+  .hero-container {
+    .title {
+      font-size: 2rem;
+    }
+    .desc {
+      font-size: 1rem;
+    }
+    .action-btn {
+      width: 100%;
+      font-size: 1.2rem;
+      line-height: 1.2rem;
+      min-width: unset;
+    }
+  }
+  /*** Common rule styling ***/
+  .rule {
+    .rule-container {
+      width: 80%;
+    }
+    .rule-header {
+      .desc {
+        width: 80%;
+      }
+    }
+    .footer {
+      width: 90%;
+    }
+  }
+  /*** Proximity Section ***/
+  .product-inner-wrapper {
+    .product {
+      width: calc(33% - 20px);
+    }
+  }
+  /*** Line Width Section ***/
+  .--width.width-fix {
+    .text {
+      width: 80%;
+    }
+  }
+  /*** Credit Section ***/
+  .credit {
+    width: 55%;
+    margin: 1rem auto;
+  }
+}
+/***** XS Devices *****/
+@media (min-width: 480px) and (max-width: 767px) and (orientation: landscape){
+  /*** Hero Section ***/
+  .hero-container {
+    grid-template-columns: 0.8fr 1fr 0.8fr;
+    .title {
+      font-size: 1.5rem;
+    }
+    .desc {
+      font-size: 1rem;
+      margin: auto;
+      grid-area: 2 / 1 / 4 / 4;
+    }
+    .action-btn {
+      width: 90%;
+      padding: 8px 10px;
+      font-size: 1.2rem;
+      line-height: 1.2rem;
+      min-width: unset;
+    }
+  }
+  /*** Common rule styling ***/
+  .rule {
+    .rule-container {
+      width: 90%;
+    }
+    .rule-header {
+      .desc {
+        width: 100%;
+      }
+    }
+    .footer {
+      width: 100%;
+    }
+    .toggle-row {
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+  }
+  .tip {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+  /*** Proximity Section ***/
+  .product-inner-wrapper {
+    display: block;
+    .product {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+  }
+  .--proximity-fix {
+    .product-wrapper {
+      margin-top: 2rem;
+    }
+    .product {
+      .header {
+        margin: 5px 0;
+      }
+    }
+  }
+  /*** Visual Hierarchy Section ***/
+  .--visual {
+    .rule-body {
+      width: 80%;
+    }
+  }
+  .--visual.visual-fix {
+    .rule-body {
+      .form-submit {
+        width: 50%;
+      }
+    }
+  }
+  /*** Line Width Section ***/
+  .--width.width-fix {
+    .text {
+      width: 80%;
+    }
+  }
+  /*** Credit Section ***/
+  .credit {
+    width: 90%;
+    margin: 1rem auto;
+  }
+}
+/***** XXS Devices *****/
+@media (max-width: 479px) and (orientation: landscape){
+  /*** Hero Section ***/
+  .hero-container {
+    grid-template-columns: 0.5fr 1fr 0.5fr;
+    .title {
+      font-size: 1.8rem;
+    }
+    .desc {
+      font-size: 0.8rem;
+      margin: auto;
+      width: 90%;
+      grid-area: 2 / 1 / 4 / 4;
+    }
+    .action-btn {
+      grid-area: 4/2/6/3;
+      margin: auto;
+      width: 100%;
+      padding: 8px 10px;
+      font-size: 1.2rem;
+      line-height: 1.2rem;
+      min-width: unset;
+    }
+  }
+  /*** Common rule styling ***/
+  .rule {
+    .rule-container {
+      width: 90%;
+      padding: 3rem 0;
+    }
+    .rule-header {
+      .desc {
+        width: 100%;
+        font-size: 0.9rem;
+      }
+    }
+    .footer {
+      width: 100%;
+      height: 0;
+    }
+    .toggle-row {
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+      .toggle {
+        font-size: .9rem;
+        min-width: 100px;
+      }
+    }
+  }
+  .tip {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+  /*** Proximity Section ***/
+  .cat-inner-wrapper {
+    .category {
+      margin-right: 40px;
+      .cat-name {
+        font-size: 14px;
+      }
+    }
+  }
+  .product-inner-wrapper {
+    display: block;
+    .product {
+      width: 100%;
+      margin-bottom: 30px;
+      .desc {
+        font-size: .8rem;
+      }
+    }
+  }
+  .proximity-fix {
+    .footer {
+      height: auto;
+    }
+    .category {
+      margin-right: 20px;
+    }
+    .product-wrapper {
+      margin-top: 2rem;
+    }
+    .product {
+      .header {
+        margin: 5px 0;
+      }
+    }
+  }
+  /*** Visual Hierarchy Section ***/
+  .--visual {
+    .rule-body {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 15px 0;
+      .inner-rule-body {
+        width: 90%;
+      }
+    }
+  }
+  .--visual.visual-fix {
+    .footer {
+      height: auto;
+    }
+    .rule-body {
+      .form-title {
+        font-size: 1.3rem;
+      }
+      .form-submit {
+        width: 50%;
+        font-size: 1.1rem;
+      }
+    }
+  }
+  /*** Line Width Section ***/
+  .rule.--width {
+    .text {
+      font-size: .9rem;
+    }
+  }
+  .--width.width-fix {
+    .footer {
+      height: auto;
+    }
+    .text {
+      width: 100%;
+      font-size: .9rem;
+    }
+  }
+  /*** Credit Section ***/
+  .credit {
+    width: 90%;
+    margin: 1rem auto;
+    text-align: left;
+  }
+}
+/*--------- Portrait Devices ---------*/
+/***** LG Devices *****/
+@media (min-width: 1200px) and (orientation: portrait){
+  /*** Hero Container ***/
+  .hero-container {
+    grid-template-columns: 1fr 1.5fr 1fr;
+    .title {
+      font-size: 5rem;
+    }
+    .desc {
+      font-size: 2rem;
+      width: 80%;
+      margin: auto;
+    }
+    .action-btn {
+      min-width: unset;
+      width: 80%;
+      font-size: 3rem;
+    }
+  }
+  /*** Common rule styling ***/
+  .rule-container {
+    width: 70%;
+  }
+}
+/***** MD Devices*****/
+@media (min-width: 993px) and (max-width: 1199px) and (orientation: portrait){
+  /*** Hero Container ***/
+  .hero-container {
+    grid-template-columns: 1fr 1.5fr 1fr;
+    .title {
+      font-size: 5rem;
+    }
+    .desc {
+      font-size: 1.8rem;
+      width: 80%;
+      margin: auto;
+    }
+    .action-btn {
+      min-width: unset;
+      width: 80%;
+      font-size: 2rem;
+    }
+  }
+  /*** Common rule styling ***/
+  .rule {
+    .rule-container {
+      width: 80%;
+    }
+    .rule-header {
+      .desc {
+        width: 80%;
+      }
+    }
+    .footer {
+      width: 90%;
+    }
+  }
+  /*** Proximity Section ***/
+  .product-inner-wrapper {
+    .product {
+      width: calc(33% - 20px);
+    }
+  }
+}
+/***** SM Devices *****/
+@media (min-width: 768px) and (max-width: 992px) and (orientation: portrait){
+  /*** Hero Container ***/
+  .hero-container {
+    grid-template-columns: 1fr 1.5fr 1fr;
+    .action-btn {
+      min-width: unset;
+      width: 80%;
+    }
+  }
+  /*** Common rule styling ***/
+  .rule {
+    .rule-container {
+      width: 80%;
+    }
+    .rule-header {
+      .desc {
+        width: 80%;
+      }
+    }
+    .footer {
+      width: 90%;
+    }
+  }
+  /*** Proximity Section ***/
+  .product-inner-wrapper {
+    .product {
+      width: calc(33% - 15px);
+      .desc {
+        font-size: .85rem;
+      }
+    }
+  }
+  /*** Line Width Section ***/
+  .--width.--width.width-fix {
+    .text {
+      width: 80%;
+    }
+  }
+  /*** Credit Section ***/
+  .credit {
+    width: 80%;
+    margin: 1rem auto;
+  }
+}
+/***** XS Devices *****/
+@media (min-width: 480px) and (max-width: 767px) and (orientation: portrait){
+  /*** Hero Container ***/
+  .hero-container {
+    .title {
+      font-size: 3rem;
+    }
+    .desc {
+      font-size: 1.4rem;
+      margin: auto;
+      grid-area: 2 / 1 / 4 / 4;
+    }
+  }
+  /*** Common rule styling ***/
+  .rule {
+    .rule-container {
+      width: 90%;
+    }
+    .rule-header {
+      .desc {
+        width: 100%;
+      }
+    }
+    .footer {
+      width: 100%;
+      height: 0;
+    }
+    .toggle-row {
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+      .toggle {
+        font-size: .9rem;
+        min-width: 100px;
+      }
+    }
+  }
+  .tip {
+    width: 100%;
+  }
+  /*** Proximity Section ***/
+  .cat-inner-wrapper {
+    .category {
+      margin-right: 40px;
+      .cat-name {
+        font-size: 14px;
+      }
+    }
+  }
+  .product-inner-wrapper {
+    display: block;
+    .product {
+      width: 100%;
+      margin-bottom: 30px;
+      .desc {
+        font-size: .8rem;
+      }
+    }
+  }
+  .proximity-fix {
+    .footer {
+      height: auto;
+    }
+    .category {
+      margin-right: 20px;
+    }
+    .product-wrapper {
+      margin-top: 2rem;
+    }
+    .product {
+      .header {
+        margin: 5px 0;
+      }
+    }
+  }
+  /*** Visual Hierarchy Section ***/
+  .--visual {
+    .rule-body {
+      width: 80%;
+    }
+  }
+  .--visual.visual-fix {
+    .rule-body {
+      box-sizing: border-box;
+      width: 90%;
+      padding: 2rem 1rem;
+    }
+    .footer {
+      height: auto;
+    }
+  }
+  /*** Line Width Section ***/
+  .--width.width-fix {
+    .footer {
+      height: auto;
+    }
+    .text {
+      width: 90%;
+    }
+  }
+  /*** Credit Section ***/
+  .credit {
+    width: 90%;
+    margin: 1rem auto;
+  }
+}
+/***** XXS Devices *****/
+@media (max-width: 479px) and (orientation: portrait){
+  /*** Hero Section ***/
+  .hero-container {
+    grid-template-columns: 0.5fr 1.5fr 0.5fr;
+    .title {
+      font-size: 1.9rem;
+      width: 95%;
+    }
+    .desc {
+      grid-area: 2 / 1 / 4 / 4;
+      font-size: 1rem;
+      margin: auto;
+      width: 80%;
+    }
+    .action-btn {
+      width: 100%;
+      min-width: unset;
+      font-size: 1.3rem;
+      line-height: 1.3rem;
+    }
+  }
+  /*** Common rule styling ***/
+  .rule {
+    .rule-container {
+      width: 90%;
+    }
+    .rule-header {
+      .desc {
+        width: 100%;
+        font-size: 0.9rem;
+      }
+    }
+    .footer {
+      width: 100%;
+      height: 0;
+    }
+    .toggle-row {
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+      .toggle {
+        font-size: .9rem;
+        min-width: 100px;
+      }
+    }
+  }
+  .tip {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+  /*** Proximity Section ***/
+  .cat-inner-wrapper {
+    .category {
+      margin-right: 40px;
+      .cat-name {
+        font-size: 14px;
+      }
+    }
+  }
+  .product-inner-wrapper {
+    display: block;
+    .product {
+      width: 100%;
+      margin-bottom: 30px;
+      .desc {
+        font-size: .8rem;
+      }
+    }
+  }
+  .proximity-fix {
+    .footer {
+      height: auto;
+    }
+    .category {
+      margin-right: 20px;
+    }
+    .product-wrapper {
+      margin-top: 2rem;
+    }
+    .product {
+      .header {
+        margin: 5px 0;
+      }
+    }
+  }
+  /*** Visual Hierarchy Section ***/
+  .--visual {
+    .rule-body {
+      width: 100%;
+      padding: 15px 0;
+      box-sizing: border-box;
+    }
+    .inner-rule-body {
+      width: 90%;
+    }
+  }
+  .--visual.visual-fix {
+    .footer {
+      height: auto;
+    }
+    .rule-body {
+      .form-title {
+        font-size: 1.2rem;
+      }
+      .form-submit {
+        width: 50%;
+        font-size: 1.1rem;
+      }
+    }
+  }
+  /***  Line Width Section ***/
+  .rule.--width {
+    .text {
+      font-size: .9rem;
+    }
+  }
+  .--width.width-fix {
+    .footer {
+      height: auto;
+    }
+    .text {
+      width: 100%;
+      font-size: 0.9rem;
+    }
+  }
+  /*** Credit Section ***/
+  .credit {
+    width: 95%;
+    margin: 1rem auto;
   }
 }

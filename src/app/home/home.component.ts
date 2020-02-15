@@ -41,15 +41,29 @@ export class HomeComponent implements OnInit {
       desc: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos'
     }
   ];
-  // Determins if the proximity section fix is applied
+  // Determine if the proximity section fix is applied
   prettyProximity = false;
+  // Determine if the visual hierarchy section fix is applied
+  prettyVisual = false;
+  // Determine if the line width section fix is applied
+  prettyWidth = false;
   constructor() { }
 
   ngOnInit() {
   }
 
-  setProximity(fix: boolean = false) {
-    this.prettyProximity = fix;
+  applyFix(category, fix: boolean = false) {
+    switch (category) {
+      case 'proximity':
+        this.prettyProximity = fix;
+        break;
+      case 'visual':
+        this.prettyVisual = fix;
+        break;
+      case 'width':
+        this.prettyWidth = fix;
+        break;
+    }
   }
 
 }
