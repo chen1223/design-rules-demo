@@ -43,9 +43,10 @@ $proximityTransition: all ease-in-out .45s;
     border: none;
     color: $mainColor;
     text-transform: uppercase;
-    padding: 9px 20px;
+    padding: 5px 20px;
     font-weight: bold;
     font-size: 1.6rem;
+    line-height: 3rem;
     grid-area: 4 / 2 / 5 / 3;
     height: 50%;
     width: 60%;
@@ -409,7 +410,7 @@ $widthTransition: all ease-in-out .65s;
     .action-btn {
       width: 100%;
       font-size: 1.2rem;
-      line-height: 2.2rem;
+      line-height: 1.5rem;
       min-width: unset;
       min-height: unset;
       padding: 9px 15px;
@@ -713,7 +714,8 @@ $widthTransition: all ease-in-out .65s;
       min-width: unset;
       width: 80%;
       font-size: 2.4rem;
-      line-height: 5rem;
+      line-height: 6rem;
+      padding: 3px 20px;
     }
   }
   /*** Common rule styling ***/
@@ -745,8 +747,9 @@ $widthTransition: all ease-in-out .65s;
     .action-btn {
       min-width: unset;
       width: 80%;
-      line-height: 3.5rem;
+      line-height: 5rem;
       font-size: 2rem;
+      padding: 2px 20px;
     }
   }
   /*** Common rule styling ***/
@@ -908,7 +911,7 @@ $widthTransition: all ease-in-out .65s;
       width: 100%;
       min-width: unset;
       font-size: 1.3rem;
-      line-height: 1.3rem;
+      line-height: 1.8rem;
       box-sizing: border-box;
       padding: 10px 20px;
     }
